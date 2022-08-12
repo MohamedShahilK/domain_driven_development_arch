@@ -1,14 +1,12 @@
-class EmailAddress {
-  final String value;
+import 'package:dartz/dartz.dart';
+import 'package:domain_driven_development_arch/domain/auth/core/failures/valueFailures/value_failures.dart';
 
-  //The most straightforward way of validating at instantiation is to create a "factory constructor"
-  //which will "perform the validation logic by throwing Exceptions if something doesn't play right"
-  //and "then finally instantiate an EmailAddress by calling a private constructor."
+class EmailAddress {
+  final Either<ValueFailures<String>, String> value;
 
   factory EmailAddress(String input) {
     // assert(input != null);
     return EmailAddress._(
-      //which returns the input(as String) only if it is validated.Otherwise throw an exception
       validateEmailAddress(input),
     );
   }
@@ -31,21 +29,16 @@ class EmailAddress {
   int get hashCode => value.hashCode;
 }
 
-//Sample Exception
-class InvalidEmailException implements Exception {
-  final String fieldValue;
-
-  InvalidEmailException({required this.fieldValue});
-}
-
 //Validation
-String validateEmailAddress(String input) {
+Either<ValueFailures<String>, String> validateEmailAddress(String input) {
   // Maybe not the most robust way of email validation but it's good enough
   const emailRegex =
       r"""^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+""";
   if (RegExp(emailRegex).hasMatch(input)) {
-    return input;
+    return right(input);
   } else {
-    throw InvalidEmailException(fieldValue: input);
+    return left(ValueFailures.invalidEmailFailure(fieldValue: input));
   }
 }
+
+
