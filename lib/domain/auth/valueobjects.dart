@@ -23,7 +23,7 @@ class EmailAddress extends ValueObject<String> {
 }
 
 class Password extends ValueObject<String> {
-  final Either<ValueFailures<String>, String> passStr;
+  final Either<ValueFailures<String>, String> passValue;
 
   factory Password(String passInt) {
     return Password._(
@@ -31,8 +31,8 @@ class Password extends ValueObject<String> {
     );
   }
 
-  Password._(this.passStr);
+  Password._(this.passValue);
 
   @override
-  Either<ValueFailures<String>, String> get value => passStr;
+  Either<ValueFailures<String>, String> get value => passValue;
 }

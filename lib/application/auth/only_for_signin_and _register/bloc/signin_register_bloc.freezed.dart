@@ -131,23 +131,15 @@ class __$$_EmailChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_EmailChanged with DiagnosticableTreeMixin implements _EmailChanged {
+class _$_EmailChanged implements _EmailChanged {
   const _$_EmailChanged({required this.emailStr});
 
   @override
   final String emailStr;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'SigninRegisterEvent.emailChanged(emailStr: $emailStr)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'SigninRegisterEvent.emailChanged'))
-      ..add(DiagnosticsProperty('emailStr', emailStr));
   }
 
   @override
@@ -298,25 +290,15 @@ class __$$_PasswordChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_PasswordChanged
-    with DiagnosticableTreeMixin
-    implements _PasswordChanged {
+class _$_PasswordChanged implements _PasswordChanged {
   const _$_PasswordChanged({required this.passStr});
 
   @override
   final String passStr;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'SigninRegisterEvent.passwordChanged(passStr: $passStr)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'SigninRegisterEvent.passwordChanged'))
-      ..add(DiagnosticsProperty('passStr', passStr));
   }
 
   @override
@@ -459,20 +441,12 @@ class __$$_RegisterWithEmailAndPasswordPressedCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_RegisterWithEmailAndPasswordPressed
-    with DiagnosticableTreeMixin
     implements _RegisterWithEmailAndPasswordPressed {
   const _$_RegisterWithEmailAndPasswordPressed();
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'SigninRegisterEvent.registerWithEmailAndPasswordPressed()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty(
-        'type', 'SigninRegisterEvent.registerWithEmailAndPasswordPressed'));
   }
 
   @override
@@ -603,20 +577,12 @@ class __$$_SigninWithEmailAndPasswordPressedCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_SigninWithEmailAndPasswordPressed
-    with DiagnosticableTreeMixin
     implements _SigninWithEmailAndPasswordPressed {
   const _$_SigninWithEmailAndPasswordPressed();
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'SigninRegisterEvent.signinWithEmailAndPasswordPressed()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty(
-        'type', 'SigninRegisterEvent.signinWithEmailAndPasswordPressed'));
   }
 
   @override
@@ -743,21 +709,12 @@ class __$$_SigninWithGoogleCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_SigninWithGoogle
-    with DiagnosticableTreeMixin
-    implements _SigninWithGoogle {
+class _$_SigninWithGoogle implements _SigninWithGoogle {
   const _$_SigninWithGoogle();
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'SigninRegisterEvent.signinWithGoogle()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(
-        DiagnosticsProperty('type', 'SigninRegisterEvent.signinWithGoogle'));
   }
 
   @override
@@ -990,9 +947,7 @@ class __$$_SigninRegisterStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_SigninRegisterState
-    with DiagnosticableTreeMixin
-    implements _SigninRegisterState {
+class _$_SigninRegisterState implements _SigninRegisterState {
   const _$_SigninRegisterState(
       {required this.emailAddress,
       required this.password,
@@ -1012,21 +967,8 @@ class _$_SigninRegisterState
   final Option<Either<AuthFailures, Unit>> authFailureOrSuccessOption;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'SigninRegisterState(emailAddress: $emailAddress, password: $password, isSubmitting: $isSubmitting, showErrorMessages: $showErrorMessages, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'SigninRegisterState'))
-      ..add(DiagnosticsProperty('emailAddress', emailAddress))
-      ..add(DiagnosticsProperty('password', password))
-      ..add(DiagnosticsProperty('isSubmitting', isSubmitting))
-      ..add(DiagnosticsProperty('showErrorMessages', showErrorMessages))
-      ..add(DiagnosticsProperty(
-          'authFailureOrSuccessOption', authFailureOrSuccessOption));
   }
 
   @override

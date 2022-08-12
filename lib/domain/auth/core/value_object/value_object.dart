@@ -8,7 +8,11 @@ import 'package:domain_driven_development_arch/domain/auth/core/failures/valueFa
 abstract class ValueObject<T> {
   const ValueObject();
 
+  //To get the value (either failure or result)
   Either<ValueFailures<T>, T> get value;
+
+  //To know result available or not
+  bool isValid() => value.isRight();
 
   //Equality 
   @override

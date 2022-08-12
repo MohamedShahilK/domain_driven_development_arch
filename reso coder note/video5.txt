@@ -1,0 +1,9 @@
+=> The logic performed inside BLoCs is focused on transforming incoming events into states. 
+   For example, a raw String will come in from the UI and a validated EmailAddress will come out.
+
+=> Register & sign in with email and password(Not Google Signin)
+    1. Check if the entered EmailAddress and Password are valid.
+    2. If valid, register/signin using IAuthFacade and emit Some<Right<Unit>> in the 
+       authFailureOrSuccessOption state field.
+    3. If invalid, indicate to start showing error messages and keep the authFailureOrSuccessOption
+       set to None.

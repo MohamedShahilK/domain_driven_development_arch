@@ -44,5 +44,7 @@ class SigninRegisterState with _$SigninRegisterState {
 //A much better option would be to use an Option 🙃. Much like Either, it's a union of 
 //two values - Some and None
 
+//
+
 
 
