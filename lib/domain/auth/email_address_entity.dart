@@ -2,7 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:domain_driven_development_arch/domain/auth/core/failures/valueFailures/value_failures.dart';
 
 class EmailAddress {
-  final Either<ValueFailures<String>, String> value;
+  final Either<ValueFailures<String>, String> emailValue;
 
   factory EmailAddress(String input) {
     // assert(input != null);
@@ -12,21 +12,21 @@ class EmailAddress {
   }
 
   //private constructor
-  const EmailAddress._(this.value);
+  const EmailAddress._(this.emailValue);
 
   @override
-  String toString() => 'EmailAddress($value)';
+  String toString() => 'EmailAddress($emailValue)';
 
   //Equality
   @override
   bool operator ==(covariant EmailAddress other) {
     if (identical(this, other)) return true;
 
-    return other.value == value;
+    return other.emailValue == emailValue;
   }
 
   @override
-  int get hashCode => value.hashCode;
+  int get hashCode => emailValue.hashCode;
 }
 
 //Validation
@@ -40,5 +40,7 @@ Either<ValueFailures<String>, String> validateEmailAddress(String input) {
     return left(ValueFailures.invalidEmailFailure(fieldValue: input));
   }
 }
+
+
 
 
