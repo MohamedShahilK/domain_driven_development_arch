@@ -1,6 +1,6 @@
 // ignore_for_file: file_names
 
-import 'package:domain_driven_development_arch/domain/auth/email_address_entity.dart';
+import 'package:domain_driven_development_arch/domain/auth/valueobjects.dart';
 
 //Let us think this function is calling somewhere in our app
 void showingTheEmailAddressOrFailure(EmailAddress emailAddress) {
