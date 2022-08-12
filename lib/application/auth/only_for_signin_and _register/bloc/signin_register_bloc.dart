@@ -20,14 +20,6 @@ class SigninRegisterBloc
     on<_EmailChanged>((event, emit) {
       emit(state.copyWith(
         emailAddress: EmailAddress(event.emailStr),
-        //We have to reset the authFailureOrSuccessOption field whenever we emit a new state.
-
-        //This field holds a "response" from the previous call to sign in/register using IAuthFacade.
-        //For Example, if the response is successful then it holds "Some" success unit
-        //if the response is unsuccessful then it holds "Some" failure unit like authfailure
-
-        //Surely, when the email address changes, it's not correct to associate the old "auth response"
-        //with the updated email address.
         authFailureOrSuccessOption: none(),
       ));
     });
@@ -73,17 +65,7 @@ class SigninRegisterBloc
           emailAddress: state.emailAddress,
           password: state.password,
         );
-
-        // emit(state.copyWith(
-        //   isSubmitting: false,
-        //   authFailureOrSuccessOption: some(failureOrSuccess),
-        // ));
       }
-
-      // emit(state.copyWith(
-      //   showErrorMessages: true,
-      //   authFailureOrSuccessOption: none(),
-      // ));
 
       //failureOrSuccess == null, happens only if email and pass are invalid
 
