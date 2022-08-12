@@ -1,0 +1,4 @@
+=> Dart's void is only a keyword, not a type, and it cannot be used as a generic type parameter.
+=> But "dartz package provides us a type" called "Unit(unit)", which we can be usd as a "functional
+   equivalent" to "Dart's dumb "void"" keyword.
+
