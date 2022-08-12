@@ -1,0 +1,29 @@
+=> The domain layer is completely independent of all the other layers. Just pure business logic 
+    & data.
+
+=> while animation code does belong into this layer, even things like form validation are 
+    NOT done inside the presentation layer.(which is inside of domain layer)
+
+=> The role of the application layer is to decide "what to do next" with the data. It 
+    doesn't perform any complex business logic, instead, it mostly "just makes sure that" the 
+    "user input is validated" (by calling things in the domain layer) or "it manages subscriptions 
+    to infrastructure data Streams" (not directly, but by utilizing the dependency inversion 
+    principle)
+
+=> The domain layer is the core of you app. Changes in the other layers don't affect it. 
+    However, changes to the domain affect every other layer. This makes sense - you're 
+    probably not changing the business logic on a daily basis.
+
+=> Validating data and keeping it valid with "ValueObjects". 
+   For example, instead of using a plain "String" for the "body of a Note", we're 
+   going to have "a separate class called NoteBody"    
+
+=> In addition to all this, the domain layer is also the home of Failures
+=>  We want to mitigate this pain with union types! Instead of using the return keyword 
+    for "correct" data and the throw keyword when something goes wrong, we're going to 
+    have Failure unions
+
+=>If you don't use Firebase Firestore, you'll probably need to cache data locally yourself. 
+  In that case, it's the job of the repository to perform the caching logic and organize 
+  putting data from the remote data source to the local one.
+
