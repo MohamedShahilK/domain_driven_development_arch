@@ -4,3 +4,8 @@
   impossible for a class like "EmailAddress" to "hold an invalid value" "not just while it's in the 
   TextFormField" but "throughout its whole lifespan."
 
+=> Either is a union type from the dartz package specifically suited to handle what we call 
+  "failures". It is a union of two values, commonly called Left and Right. The left side holds 
+   Failures and the right side holds the correct values
+=> By using this package, we don't want to use try catch in everwhere.We can easily handle error
+   via Either package
