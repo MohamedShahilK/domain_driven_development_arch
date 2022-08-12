@@ -9,3 +9,11 @@
    Failures and the right side holds the correct values
 => By using this package, we don't want to use try catch in everwhere.We can easily handle error
    via Either package
+
+=> Creating abstract "ValueObject" class for refraction, thereby we can avoid copy and paste
+
+=> @immutable : ThereBy we Enforce only final fields be present inside of a class
+
+=> we are inside of absract class.So we can't afford final field(we can write.But not a 
+   good practice). But we can afford "getter method" for the values
+
