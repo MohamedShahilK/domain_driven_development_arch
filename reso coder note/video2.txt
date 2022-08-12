@@ -1,0 +1,6 @@
+=> We will take this principle and take it to a whole another level. You see, 
+  not all validation is equal. We're about "to perform the safest validation" of them all - 
+  we're going to "make illegal states unrepresentable". In other words, we will make it 
+  impossible for a class like "EmailAddress" to "hold an invalid value" "not just while it's in the 
+  TextFormField" but "throughout its whole lifespan."
+
