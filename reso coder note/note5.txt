@@ -1,0 +1,6 @@
+=> Signin and Register with Email & password in 'FireBaseAuth' doesn't have to / not need to 
+   obtain any credentials Because the FireBase is done by itself 
+
+=> For 'try-catch' to work, you must use the await keyword
+
+=> In case we you 'then()', handle exception with 'catchError()'

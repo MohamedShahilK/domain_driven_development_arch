@@ -68,9 +68,41 @@ class AuthRepoImpl implements AuthRepoInterface {
     }
   }
 
+  //We actually want the google services inside of firebase.So some things are differ from above 2 that we done.
   @override
-  Future<Either<AuthFailures, Unit>> signInWithGoogle() {
-    // TODO: implement signInWithGoogle
-    throw UnimplementedError();
+  Future<Either<AuthFailures, Unit>> signInWithGoogle() async {
+    final googleUser = await _googleSignIn.signIn();
+
+    if (googleUser == null) {
+      return left(const AuthFailures.cancelledByUser());
+    }
+    final googleUserAuth = await googleUser.authentication;
+
+    final googleUserCredentail = GoogleAuthProvider.credential(
+      accessToken: googleUserAuth.accessToken,
+      idToken: googleUserAuth.idToken,
+    );
+    // return _firebaseAuth
+    //     .signInWithCredential(googleUserCredentail)
+    //     .then((value) => right(unit)).catchError();
+
+    try {
+      // return _firebaseAuth
+      //     .signInWithCredential(googleUserCredentail)
+      //     .then((value) => right(unit));
+
+      //Or
+
+      await _firebaseAuth.signInWithCredential(googleUserCredentail);
+      return right(unit);
+    } on PlatformException catch (_) {
+      return left(const AuthFailures.serverFailure());
+    }
   }
 }
+
+//Firebase Cannot understand 'GoogleSignInAuthentication' object for authentication by using tokens
+
+//Firebase Can only understand 'Credentials', thereby it access tokens for corresponding plaforms
+//via providers like 'TwitterAuthProvider', 'FacebookAuthProvider', 'GithubAuthProvider' etc...
+
