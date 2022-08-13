@@ -6,11 +6,13 @@ import 'package:domain_driven_development_arch/domain/auth/core/failures_and_err
 import 'package:domain_driven_development_arch/domain/auth/valueobjects.dart';
 
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:injectable/injectable.dart';
 
 part 'signin_register_event.dart';
 part 'signin_register_state.dart';
 part 'signin_register_bloc.freezed.dart';
 
+@injectable
 class SigninRegisterBloc
     extends Bloc<SigninRegisterEvent, SigninRegisterState> {
   final AuthRepoInterface _authRepoInterface;

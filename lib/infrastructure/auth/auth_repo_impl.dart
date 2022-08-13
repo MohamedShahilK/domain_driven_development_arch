@@ -6,7 +6,9 @@ import 'package:domain_driven_development_arch/domain/auth/core/failures_and_err
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:injectable/injectable.dart';
 
+@LazySingleton(as: AuthRepoInterface)
 class AuthRepoImpl implements AuthRepoInterface {
   //For Signin with firebase and google
   final FirebaseAuth _firebaseAuth;
