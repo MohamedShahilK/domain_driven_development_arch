@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:domain_driven_development_arch/domain/auth/core/failures/authFailures/auth_failures.dart';
+import 'package:domain_driven_development_arch/domain/auth/core/failures_and_errors/authFailures/auth_failures.dart';
 import 'package:domain_driven_development_arch/domain/auth/valueobjects.dart';
 
 abstract class AuthRepoInterface {

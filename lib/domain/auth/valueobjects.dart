@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:domain_driven_development_arch/domain/auth/core/failures/valueFailures/value_failures.dart';
+import 'package:domain_driven_development_arch/domain/auth/core/failures_and_errors/valueFailures/value_failures.dart';
 import 'package:domain_driven_development_arch/domain/auth/core/value_object/value_object.dart';
 
 import 'core/values_validation/value_validators.dart';

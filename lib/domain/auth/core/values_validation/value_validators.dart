@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:domain_driven_development_arch/domain/auth/core/failures/valueFailures/value_failures.dart';
+import 'package:domain_driven_development_arch/domain/auth/core/failures_and_errors/valueFailures/value_failures.dart';
 
 Either<ValueFailures<String>, String> validateEmailAddress(String input) {
   // Maybe not the most robust way of email validation but it's good enough

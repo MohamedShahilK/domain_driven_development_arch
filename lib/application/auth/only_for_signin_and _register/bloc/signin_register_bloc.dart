@@ -2,7 +2,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:domain_driven_development_arch/domain/auth/auth_repo_interface.dart';
-import 'package:domain_driven_development_arch/domain/auth/core/failures/authFailures/auth_failures.dart';
+import 'package:domain_driven_development_arch/domain/auth/core/failures_and_errors/authFailures/auth_failures.dart';
 import 'package:domain_driven_development_arch/domain/auth/valueobjects.dart';
 
 import 'package:freezed_annotation/freezed_annotation.dart';
