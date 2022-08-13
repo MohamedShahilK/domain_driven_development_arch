@@ -1,4 +1,5 @@
-import 'package:domain_driven_development_arch/core/dependency_injection.config.dart';
+
+import 'package:domain_driven_development_arch/core/Dependency%20Injection/dependency_injection.config.dart';
 import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
 

@@ -1,0 +1,2 @@
+=> creating a module for support injection when injecting classes (AuthRepoImpl) are included
+   with other dependencies (GoogleSignIn Package)
