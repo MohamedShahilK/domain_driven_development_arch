@@ -16,23 +16,25 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$ValueFailures<T> {
-  String get fieldValue => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String fieldValue) invalidEmailFailure,
     required TResult Function(String fieldValue) shortPasswordFailure,
+    required TResult Function() uniqueIdError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String fieldValue)? invalidEmailFailure,
     TResult Function(String fieldValue)? shortPasswordFailure,
+    TResult Function()? uniqueIdError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String fieldValue)? invalidEmailFailure,
     TResult Function(String fieldValue)? shortPasswordFailure,
+    TResult Function()? uniqueIdError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -41,24 +43,23 @@ mixin _$ValueFailures<T> {
     required TResult Function(InvalidEmailFailure<T> value) invalidEmailFailure,
     required TResult Function(ShortPasswordFailure<T> value)
         shortPasswordFailure,
+    required TResult Function(UniqueIdError<T> value) uniqueIdError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(InvalidEmailFailure<T> value)? invalidEmailFailure,
     TResult Function(ShortPasswordFailure<T> value)? shortPasswordFailure,
+    TResult Function(UniqueIdError<T> value)? uniqueIdError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(InvalidEmailFailure<T> value)? invalidEmailFailure,
     TResult Function(ShortPasswordFailure<T> value)? shortPasswordFailure,
+    TResult Function(UniqueIdError<T> value)? uniqueIdError,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $ValueFailuresCopyWith<T, ValueFailures<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -67,7 +68,6 @@ abstract class $ValueFailuresCopyWith<T, $Res> {
   factory $ValueFailuresCopyWith(
           ValueFailures<T> value, $Res Function(ValueFailures<T>) then) =
       _$ValueFailuresCopyWithImpl<T, $Res>;
-  $Res call({String fieldValue});
 }
 
 /// @nodoc
@@ -78,27 +78,13 @@ class _$ValueFailuresCopyWithImpl<T, $Res>
   final ValueFailures<T> _value;
   // ignore: unused_field
   final $Res Function(ValueFailures<T>) _then;
-
-  @override
-  $Res call({
-    Object? fieldValue = freezed,
-  }) {
-    return _then(_value.copyWith(
-      fieldValue: fieldValue == freezed
-          ? _value.fieldValue
-          : fieldValue // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
 }
 
 /// @nodoc
-abstract class _$$InvalidEmailFailureCopyWith<T, $Res>
-    implements $ValueFailuresCopyWith<T, $Res> {
+abstract class _$$InvalidEmailFailureCopyWith<T, $Res> {
   factory _$$InvalidEmailFailureCopyWith(_$InvalidEmailFailure<T> value,
           $Res Function(_$InvalidEmailFailure<T>) then) =
       __$$InvalidEmailFailureCopyWithImpl<T, $Res>;
-  @override
   $Res call({String fieldValue});
 }
 
@@ -164,6 +150,7 @@ class _$InvalidEmailFailure<T> implements InvalidEmailFailure<T> {
   TResult when<TResult extends Object?>({
     required TResult Function(String fieldValue) invalidEmailFailure,
     required TResult Function(String fieldValue) shortPasswordFailure,
+    required TResult Function() uniqueIdError,
   }) {
     return invalidEmailFailure(fieldValue);
   }
@@ -173,6 +160,7 @@ class _$InvalidEmailFailure<T> implements InvalidEmailFailure<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String fieldValue)? invalidEmailFailure,
     TResult Function(String fieldValue)? shortPasswordFailure,
+    TResult Function()? uniqueIdError,
   }) {
     return invalidEmailFailure?.call(fieldValue);
   }
@@ -182,6 +170,7 @@ class _$InvalidEmailFailure<T> implements InvalidEmailFailure<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String fieldValue)? invalidEmailFailure,
     TResult Function(String fieldValue)? shortPasswordFailure,
+    TResult Function()? uniqueIdError,
     required TResult orElse(),
   }) {
     if (invalidEmailFailure != null) {
@@ -196,6 +185,7 @@ class _$InvalidEmailFailure<T> implements InvalidEmailFailure<T> {
     required TResult Function(InvalidEmailFailure<T> value) invalidEmailFailure,
     required TResult Function(ShortPasswordFailure<T> value)
         shortPasswordFailure,
+    required TResult Function(UniqueIdError<T> value) uniqueIdError,
   }) {
     return invalidEmailFailure(this);
   }
@@ -205,6 +195,7 @@ class _$InvalidEmailFailure<T> implements InvalidEmailFailure<T> {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(InvalidEmailFailure<T> value)? invalidEmailFailure,
     TResult Function(ShortPasswordFailure<T> value)? shortPasswordFailure,
+    TResult Function(UniqueIdError<T> value)? uniqueIdError,
   }) {
     return invalidEmailFailure?.call(this);
   }
@@ -214,6 +205,7 @@ class _$InvalidEmailFailure<T> implements InvalidEmailFailure<T> {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(InvalidEmailFailure<T> value)? invalidEmailFailure,
     TResult Function(ShortPasswordFailure<T> value)? shortPasswordFailure,
+    TResult Function(UniqueIdError<T> value)? uniqueIdError,
     required TResult orElse(),
   }) {
     if (invalidEmailFailure != null) {
@@ -227,21 +219,17 @@ abstract class InvalidEmailFailure<T> implements ValueFailures<T> {
   const factory InvalidEmailFailure({required final String fieldValue}) =
       _$InvalidEmailFailure<T>;
 
-  @override
   String get fieldValue;
-  @override
   @JsonKey(ignore: true)
   _$$InvalidEmailFailureCopyWith<T, _$InvalidEmailFailure<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ShortPasswordFailureCopyWith<T, $Res>
-    implements $ValueFailuresCopyWith<T, $Res> {
+abstract class _$$ShortPasswordFailureCopyWith<T, $Res> {
   factory _$$ShortPasswordFailureCopyWith(_$ShortPasswordFailure<T> value,
           $Res Function(_$ShortPasswordFailure<T>) then) =
       __$$ShortPasswordFailureCopyWithImpl<T, $Res>;
-  @override
   $Res call({String fieldValue});
 }
 
@@ -307,6 +295,7 @@ class _$ShortPasswordFailure<T> implements ShortPasswordFailure<T> {
   TResult when<TResult extends Object?>({
     required TResult Function(String fieldValue) invalidEmailFailure,
     required TResult Function(String fieldValue) shortPasswordFailure,
+    required TResult Function() uniqueIdError,
   }) {
     return shortPasswordFailure(fieldValue);
   }
@@ -316,6 +305,7 @@ class _$ShortPasswordFailure<T> implements ShortPasswordFailure<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String fieldValue)? invalidEmailFailure,
     TResult Function(String fieldValue)? shortPasswordFailure,
+    TResult Function()? uniqueIdError,
   }) {
     return shortPasswordFailure?.call(fieldValue);
   }
@@ -325,6 +315,7 @@ class _$ShortPasswordFailure<T> implements ShortPasswordFailure<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String fieldValue)? invalidEmailFailure,
     TResult Function(String fieldValue)? shortPasswordFailure,
+    TResult Function()? uniqueIdError,
     required TResult orElse(),
   }) {
     if (shortPasswordFailure != null) {
@@ -339,6 +330,7 @@ class _$ShortPasswordFailure<T> implements ShortPasswordFailure<T> {
     required TResult Function(InvalidEmailFailure<T> value) invalidEmailFailure,
     required TResult Function(ShortPasswordFailure<T> value)
         shortPasswordFailure,
+    required TResult Function(UniqueIdError<T> value) uniqueIdError,
   }) {
     return shortPasswordFailure(this);
   }
@@ -348,6 +340,7 @@ class _$ShortPasswordFailure<T> implements ShortPasswordFailure<T> {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(InvalidEmailFailure<T> value)? invalidEmailFailure,
     TResult Function(ShortPasswordFailure<T> value)? shortPasswordFailure,
+    TResult Function(UniqueIdError<T> value)? uniqueIdError,
   }) {
     return shortPasswordFailure?.call(this);
   }
@@ -357,6 +350,7 @@ class _$ShortPasswordFailure<T> implements ShortPasswordFailure<T> {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(InvalidEmailFailure<T> value)? invalidEmailFailure,
     TResult Function(ShortPasswordFailure<T> value)? shortPasswordFailure,
+    TResult Function(UniqueIdError<T> value)? uniqueIdError,
     required TResult orElse(),
   }) {
     if (shortPasswordFailure != null) {
@@ -370,10 +364,120 @@ abstract class ShortPasswordFailure<T> implements ValueFailures<T> {
   const factory ShortPasswordFailure({required final String fieldValue}) =
       _$ShortPasswordFailure<T>;
 
-  @override
   String get fieldValue;
-  @override
   @JsonKey(ignore: true)
   _$$ShortPasswordFailureCopyWith<T, _$ShortPasswordFailure<T>> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UniqueIdErrorCopyWith<T, $Res> {
+  factory _$$UniqueIdErrorCopyWith(
+          _$UniqueIdError<T> value, $Res Function(_$UniqueIdError<T>) then) =
+      __$$UniqueIdErrorCopyWithImpl<T, $Res>;
+}
+
+/// @nodoc
+class __$$UniqueIdErrorCopyWithImpl<T, $Res>
+    extends _$ValueFailuresCopyWithImpl<T, $Res>
+    implements _$$UniqueIdErrorCopyWith<T, $Res> {
+  __$$UniqueIdErrorCopyWithImpl(
+      _$UniqueIdError<T> _value, $Res Function(_$UniqueIdError<T>) _then)
+      : super(_value, (v) => _then(v as _$UniqueIdError<T>));
+
+  @override
+  _$UniqueIdError<T> get _value => super._value as _$UniqueIdError<T>;
+}
+
+/// @nodoc
+
+class _$UniqueIdError<T> implements UniqueIdError<T> {
+  const _$UniqueIdError();
+
+  @override
+  String toString() {
+    return 'ValueFailures<$T>.uniqueIdError()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$UniqueIdError<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String fieldValue) invalidEmailFailure,
+    required TResult Function(String fieldValue) shortPasswordFailure,
+    required TResult Function() uniqueIdError,
+  }) {
+    return uniqueIdError();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String fieldValue)? invalidEmailFailure,
+    TResult Function(String fieldValue)? shortPasswordFailure,
+    TResult Function()? uniqueIdError,
+  }) {
+    return uniqueIdError?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String fieldValue)? invalidEmailFailure,
+    TResult Function(String fieldValue)? shortPasswordFailure,
+    TResult Function()? uniqueIdError,
+    required TResult orElse(),
+  }) {
+    if (uniqueIdError != null) {
+      return uniqueIdError();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(InvalidEmailFailure<T> value) invalidEmailFailure,
+    required TResult Function(ShortPasswordFailure<T> value)
+        shortPasswordFailure,
+    required TResult Function(UniqueIdError<T> value) uniqueIdError,
+  }) {
+    return uniqueIdError(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(InvalidEmailFailure<T> value)? invalidEmailFailure,
+    TResult Function(ShortPasswordFailure<T> value)? shortPasswordFailure,
+    TResult Function(UniqueIdError<T> value)? uniqueIdError,
+  }) {
+    return uniqueIdError?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(InvalidEmailFailure<T> value)? invalidEmailFailure,
+    TResult Function(ShortPasswordFailure<T> value)? shortPasswordFailure,
+    TResult Function(UniqueIdError<T> value)? uniqueIdError,
+    required TResult orElse(),
+  }) {
+    if (uniqueIdError != null) {
+      return uniqueIdError(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UniqueIdError<T> implements ValueFailures<T> {
+  const factory UniqueIdError() = _$UniqueIdError<T>;
 }

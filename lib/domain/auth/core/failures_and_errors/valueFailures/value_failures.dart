@@ -10,6 +10,8 @@ class ValueFailures<T> with _$ValueFailures<T> {
   const factory ValueFailures.shortPasswordFailure({
     required String fieldValue,
   }) = ShortPasswordFailure<T>;
+  //IDK it is correct or not
+  const factory ValueFailures.uniqueIdError() = UniqueIdError<T>;
 }
 
 // @freezed

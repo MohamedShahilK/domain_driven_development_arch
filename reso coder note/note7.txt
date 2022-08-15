@@ -1,0 +1,3 @@
+=> Unique ID is can be used for any sort of specific solution(Hive, FireStore, SQLite, 
+   SharedPrefrences etc..) for storing user data. But UniqueID in itself is not bound to any 
+   particular storage solution.
