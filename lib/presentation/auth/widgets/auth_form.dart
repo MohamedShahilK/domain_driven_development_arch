@@ -8,7 +8,26 @@ class AuthForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<SigninRegisterBloc, SigninRegisterState>(
-      listener: (context, state) {},
+      listener: (context, state) {
+        state.authFailureOrSuccessOption.fold(
+          () {},
+          (either) => either.fold(
+            (failure) {
+              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                  content: failure.map(
+                cancelledByUser: (_) => const Text('Cancelled By User'),
+                serverFailure: (_) => const Text('Server Failure'),
+                emailAlreadyInUse: (_) => const Text('Email Already In Use'),
+                invalidEmailAndPasswordCombination: (_) =>
+                    const Text('Invalid Email & Password Combination'),
+              )));
+            },
+            (r) {
+              //Navigate to Home page
+            },
+          ),
+        );
+      },
       builder: (context, state) {
         return Form(
           autovalidateMode: state.showErrorMessages
@@ -33,7 +52,6 @@ class AuthForm extends StatelessWidget {
                     .add(SigninRegisterEvent.emailChanged(emailStr: value))
               },
               validator: (_) {
-                print('object');
                 return context
                     .read<SigninRegisterBloc>()
                     .state
@@ -60,7 +78,6 @@ class AuthForm extends StatelessWidget {
                   .read<SigninRegisterBloc>()
                   .add(SigninRegisterEvent.passwordChanged(passStr: value)),
               validator: (value) {
-                print('object');
                 return context
                     .read<SigninRegisterBloc>()
                     .state
@@ -91,14 +108,23 @@ class AuthForm extends StatelessWidget {
                 ),
                 Expanded(
                   child: TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      context.read<SigninRegisterBloc>().add(
+                            const SigninRegisterEvent
+                                .registerWithEmailAndPasswordPressed(),
+                          );
+                    },
                     child: const Text('REGISTER'),
                   ),
                 ),
               ],
             ),
             MaterialButton(
-              onPressed: () {},
+              onPressed: () {
+                context.read<SigninRegisterBloc>().add(
+                      const SigninRegisterEvent.signinWithGoogle(),
+                    );
+              },
               color: Colors.lightBlue,
               child: const Text(
                 'SIGN IN WITH GOOGLE',
