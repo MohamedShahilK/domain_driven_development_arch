@@ -4,7 +4,7 @@ import 'package:domain_driven_development_arch/domain/auth/each_user.dart';
 import 'package:domain_driven_development_arch/domain/auth/valueobjects.dart';
 
 abstract class AuthRepoInterface {
-  Future<Option<User>> getSignedUserByAuthChecking();
+  Future<Option<EachUser>> getSignedUserByAuthChecking();
 
   Future<Either<AuthFailures, Unit>> registerWithEmailAndPassword({
     required EmailAddress emailAddress,

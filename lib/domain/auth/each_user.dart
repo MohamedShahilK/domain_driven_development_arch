@@ -4,8 +4,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'each_user.freezed.dart';
 
 @freezed
-class User with _$User {
-  const factory User({
+class EachUser with _$EachUser {
+  const factory EachUser({
     required UniqueId uniqueId,
-  }) = _User;
+  }) = _EachUser;
 }

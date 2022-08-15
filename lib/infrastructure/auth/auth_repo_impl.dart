@@ -1,8 +1,10 @@
 import 'package:dartz/dartz.dart';
 import 'package:domain_driven_development_arch/domain/auth/auth_repo_interface.dart';
 import 'package:domain_driven_development_arch/domain/auth/core/failures_and_errors/valueErrors/unexpected_value_error.dart';
+import 'package:domain_driven_development_arch/domain/auth/each_user.dart';
 import 'package:domain_driven_development_arch/domain/auth/valueobjects.dart';
 import 'package:domain_driven_development_arch/domain/auth/core/failures_and_errors/authFailures/auth_failures.dart';
+import 'package:domain_driven_development_arch/infrastructure/auth/firebase_user_mapper.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -18,6 +20,11 @@ class AuthRepoImpl implements AuthRepoInterface {
     this._firebaseAuth,
     this._googleSignIn,
   );
+
+  @override
+  Future<Option<EachUser>> getSignedUserByAuthChecking() async {
+    return optionOf(_firebaseAuth.currentUser!.toDomain());
+  }
 
   @override
   Future<Either<AuthFailures, Unit>> registerWithEmailAndPassword({
@@ -100,6 +107,13 @@ class AuthRepoImpl implements AuthRepoInterface {
     } on PlatformException catch (_) {
       return left(const AuthFailures.serverFailure());
     }
+  }
+
+  @override
+  Future<void> signOut() {
+    return Future.wait([_firebaseAuth.signOut(), _googleSignIn.signOut()]);
+    // _firebaseAuth.signOut();
+    // _googleSignIn.signOut();
   }
 }
 

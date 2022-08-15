@@ -15,27 +15,28 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$User {
+mixin _$EachUser {
   UniqueId get uniqueId => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $UserCopyWith<User> get copyWith => throw _privateConstructorUsedError;
+  $EachUserCopyWith<EachUser> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $UserCopyWith<$Res> {
-  factory $UserCopyWith(User value, $Res Function(User) then) =
-      _$UserCopyWithImpl<$Res>;
+abstract class $EachUserCopyWith<$Res> {
+  factory $EachUserCopyWith(EachUser value, $Res Function(EachUser) then) =
+      _$EachUserCopyWithImpl<$Res>;
   $Res call({UniqueId uniqueId});
 }
 
 /// @nodoc
-class _$UserCopyWithImpl<$Res> implements $UserCopyWith<$Res> {
-  _$UserCopyWithImpl(this._value, this._then);
+class _$EachUserCopyWithImpl<$Res> implements $EachUserCopyWith<$Res> {
+  _$EachUserCopyWithImpl(this._value, this._then);
 
-  final User _value;
+  final EachUser _value;
   // ignore: unused_field
-  final $Res Function(User) _then;
+  final $Res Function(EachUser) _then;
 
   @override
   $Res call({
@@ -51,27 +52,29 @@ class _$UserCopyWithImpl<$Res> implements $UserCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$$_UserCopyWith<$Res> implements $UserCopyWith<$Res> {
-  factory _$$_UserCopyWith(_$_User value, $Res Function(_$_User) then) =
-      __$$_UserCopyWithImpl<$Res>;
+abstract class _$$_EachUserCopyWith<$Res> implements $EachUserCopyWith<$Res> {
+  factory _$$_EachUserCopyWith(
+          _$_EachUser value, $Res Function(_$_EachUser) then) =
+      __$$_EachUserCopyWithImpl<$Res>;
   @override
   $Res call({UniqueId uniqueId});
 }
 
 /// @nodoc
-class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
-    implements _$$_UserCopyWith<$Res> {
-  __$$_UserCopyWithImpl(_$_User _value, $Res Function(_$_User) _then)
-      : super(_value, (v) => _then(v as _$_User));
+class __$$_EachUserCopyWithImpl<$Res> extends _$EachUserCopyWithImpl<$Res>
+    implements _$$_EachUserCopyWith<$Res> {
+  __$$_EachUserCopyWithImpl(
+      _$_EachUser _value, $Res Function(_$_EachUser) _then)
+      : super(_value, (v) => _then(v as _$_EachUser));
 
   @override
-  _$_User get _value => super._value as _$_User;
+  _$_EachUser get _value => super._value as _$_EachUser;
 
   @override
   $Res call({
     Object? uniqueId = freezed,
   }) {
-    return _then(_$_User(
+    return _then(_$_EachUser(
       uniqueId: uniqueId == freezed
           ? _value.uniqueId
           : uniqueId // ignore: cast_nullable_to_non_nullable
@@ -82,22 +85,22 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_User implements _User {
-  const _$_User({required this.uniqueId});
+class _$_EachUser implements _EachUser {
+  const _$_EachUser({required this.uniqueId});
 
   @override
   final UniqueId uniqueId;
 
   @override
   String toString() {
-    return 'User(uniqueId: $uniqueId)';
+    return 'EachUser(uniqueId: $uniqueId)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_User &&
+            other is _$_EachUser &&
             const DeepCollectionEquality().equals(other.uniqueId, uniqueId));
   }
 
@@ -107,16 +110,17 @@ class _$_User implements _User {
 
   @JsonKey(ignore: true)
   @override
-  _$$_UserCopyWith<_$_User> get copyWith =>
-      __$$_UserCopyWithImpl<_$_User>(this, _$identity);
+  _$$_EachUserCopyWith<_$_EachUser> get copyWith =>
+      __$$_EachUserCopyWithImpl<_$_EachUser>(this, _$identity);
 }
 
-abstract class _User implements User {
-  const factory _User({required final UniqueId uniqueId}) = _$_User;
+abstract class _EachUser implements EachUser {
+  const factory _EachUser({required final UniqueId uniqueId}) = _$_EachUser;
 
   @override
   UniqueId get uniqueId;
   @override
   @JsonKey(ignore: true)
-  _$$_UserCopyWith<_$_User> get copyWith => throw _privateConstructorUsedError;
+  _$$_EachUserCopyWith<_$_EachUser> get copyWith =>
+      throw _privateConstructorUsedError;
 }
