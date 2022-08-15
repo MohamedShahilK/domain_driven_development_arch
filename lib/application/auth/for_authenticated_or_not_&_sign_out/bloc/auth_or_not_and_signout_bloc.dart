@@ -21,7 +21,7 @@ class AuthOrNotAndSignoutBloc
         emit(
           userFoundOrNot.fold(
             () => const AuthOrNotAndSignoutState.unauthenticated(),
-            (a) => const AuthOrNotAndSignoutState.authenticated(),
+            (_) => const AuthOrNotAndSignoutState.authenticated(),
           ),
         );
       } else {
