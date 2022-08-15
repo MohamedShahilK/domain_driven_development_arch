@@ -8,7 +8,7 @@ class AuthPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Signin')),
-      body: const AuthForm(),
+      body: AuthForm(),
     );
   }
 }
