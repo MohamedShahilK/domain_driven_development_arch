@@ -23,7 +23,7 @@ class AuthRepoImpl implements AuthRepoInterface {
 
   @override
   Future<Option<EachUser>> getSignedUserByAuthChecking() async {
-    return optionOf(_firebaseAuth.currentUser!.toDomain());
+    return optionOf(_firebaseAuth.currentUser?.toDomain());
   }
 
   @override

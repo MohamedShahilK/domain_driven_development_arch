@@ -12,7 +12,9 @@ class SplashPage extends StatelessWidget {
       listener: (context, state) {
         state.map(
           initial: (_) {},
-          authenticated: (_) {},
+          authenticated: (_) {
+            print('is autheticated');
+          },
           unauthenticated: (_) =>
               Navigator.of(context).pushReplacement(MaterialPageRoute(
             builder: (context) => const AuthPage(),
