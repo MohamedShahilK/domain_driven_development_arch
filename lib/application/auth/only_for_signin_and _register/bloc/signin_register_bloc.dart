@@ -50,8 +50,8 @@ class SigninRegisterBloc
     on<_RegisterWithEmailAndPasswordPressed>((event, emit) async {
       // if(state.emailAddress.emailValue.isRight() && state.password.passValue.isRight()){}
       //instead of it, we using getter method within the valueObject class
-      final isEmailVaild = state.emailAddress.isValid();
-      final isPasswordVaild = state.password.isValid();
+      final isEmailVaild = state.emailAddress.emailValue.isRight();
+      final isPasswordVaild = state.password.passValue.isRight();
 
       Either<AuthFailures, Unit>? failureOrSuccess;
 
@@ -81,8 +81,8 @@ class SigninRegisterBloc
     });
 
     on<_SigninWithEmailAndPasswordPressed>((event, emit) async {
-      final isEmailVaild = state.emailAddress.isValid();
-      final isPasswordVaild = state.password.isValid();
+      final isEmailVaild = state.emailAddress.emailValue.isRight();
+      final isPasswordVaild = state.password.passValue.isRight();
 
       if (isEmailVaild && isPasswordVaild) {
         emit(state.copyWith(

@@ -5,7 +5,7 @@ import 'package:uuid/uuid.dart';
 
 import 'core/values_validation/value_validators.dart';
 
-class EmailAddress extends ValueObject<String> {
+class EmailAddress {
   final Either<ValueFailures<String>, String> emailValue;
 
   //"input" name can be anything.It is just for validation purpose
@@ -18,12 +18,9 @@ class EmailAddress extends ValueObject<String> {
 
   //private constructor
   const EmailAddress._(this.emailValue);
-
-  @override
-  Either<ValueFailures<String>, String> get value => emailValue;
 }
 
-class Password extends ValueObject<String> {
+class Password {
   final Either<ValueFailures<String>, String> passValue;
 
   factory Password(String passInt) {
@@ -33,9 +30,6 @@ class Password extends ValueObject<String> {
   }
 
   Password._(this.passValue);
-
-  @override
-  Either<ValueFailures<String>, String> get value => passValue;
 }
 
 class UniqueId extends ValueObject<String> {

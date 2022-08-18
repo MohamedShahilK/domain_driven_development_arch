@@ -6,7 +6,6 @@ import 'package:domain_driven_development_arch/domain/auth/valueobjects.dart';
 import 'package:domain_driven_development_arch/domain/auth/core/failures_and_errors/authFailures/auth_failures.dart';
 import 'package:domain_driven_development_arch/infrastructure/auth/firebase_user_mapper.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/services.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:injectable/injectable.dart';
 
@@ -37,7 +36,10 @@ class AuthRepoImpl implements AuthRepoInterface {
       (emailResp) => emailResp, //right
     );
 
-    final passString = password.getOrCrash();
+    final passString = password.passValue.fold(
+      (failure) => throw UnexpectedValueError(failure), //left
+      (passResp) => passResp, //right
+    );
 
     try {
       await _firebaseAuth.createUserWithEmailAndPassword(
@@ -45,7 +47,7 @@ class AuthRepoImpl implements AuthRepoInterface {
         password: passString,
       );
       return const Right(unit);
-    } on PlatformException catch (e) {
+    } on FirebaseAuthException catch (e) {
       if (e.code == 'email-already-in-use') {
         return left(const AuthFailures.emailAlreadyInUse());
       } else {
@@ -59,8 +61,15 @@ class AuthRepoImpl implements AuthRepoInterface {
     required EmailAddress emailAddress,
     required Password password,
   }) async {
-    final emailString = emailAddress.getOrCrash();
-    final passString = password.getOrCrash();
+    final emailString = emailAddress.emailValue.fold(
+      // (failure) => 'faliure : $failure', //left
+      (failure) => throw UnexpectedValueError(failure), //left
+      (emailResp) => emailResp, //right
+    );
+    final passString = password.passValue.fold(
+      (failure) => throw UnexpectedValueError(failure), //left
+      (passResp) => passResp, //right
+    );
 
     try {
       await _firebaseAuth.signInWithEmailAndPassword(
@@ -68,8 +77,10 @@ class AuthRepoImpl implements AuthRepoInterface {
         password: passString,
       );
       return right(unit);
-    } on PlatformException catch (e) {
-      if (e.code == 'invalid-email' || e.code == 'wrong-password') {
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'invalid-email' ||
+          e.code == 'wrong-password' ||
+          e.code == 'user-not-found') {
         return left(const AuthFailures.invalidEmailAndPasswordCombination());
       } else {
         return left(const AuthFailures.serverFailure());
@@ -104,7 +115,7 @@ class AuthRepoImpl implements AuthRepoInterface {
 
       await _firebaseAuth.signInWithCredential(googleUserCredentail);
       return right(unit);
-    } on PlatformException catch (_) {
+    } on FirebaseAuthException catch (_) {
       return left(const AuthFailures.serverFailure());
     }
   }
